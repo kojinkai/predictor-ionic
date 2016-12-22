@@ -1,0 +1,24 @@
+language: node_js
+node_js: 6
+cache: yarn
+deploy:
+  provider: npm
+  email: lewcfn@gmail.com
+  api_key:
+    secure: QJH1gYjfh5HCvluP6nR2CUtKOqg2ogtzlD0ewXaz2URy7QDngu4Efe7GsmrwVYh5wnSSEgoCPd/pDA3VYm3sDR6ZkM9sKe7LpKk+UTDwAiNf9ZqhTLfBV2Y8xP8fc6DuXx+H/qvlXTomPCDFKOJiGjOadg3MlBjIT6idTnih6QnHlR+gYAit2GkoDmgVM8WFr8sxQ5BaV7nLKnpm3ocgygS3zjoSAQXQ2a4Y2F/kfhPcjcPclOkP9LGIRQWrkn0dUYz0l7NwlT2TtgskvA5N73WReMm6rdd1SZ7li3Jv543nBGeRvPNUR2yMeuUSFGVWefVcXaFpU9JvXPMOlhs7Q0umD7LmobSgtd1f2GWeAFAePvgOSKbOHcD9OW5LxH40ObOGBFDYTiXZqPo6tDqI+gasZl4R9ltcP7Z0GaYTpkWQFqzWeHNEs+BzeD9U/aPYCQK+9UcZ9/FM8hSFOU9g/+HzluIyABR6Klu7FU7R6IFZUFPRIN1wMuGFem9BypMAomSIBOwcNoNzbM11fsUC21CI3Sk7yMy0h8UhD9fga6yyPlO/UT8Emgw8QorOjfOPJY+UHMK3iGML6UTlCUMoCTR/nmv0n9LFk/HmZ1FbcFU538xLCvlCgM6KbBUIpzKsxSQGV6OEfLET0sfpniwkz9k9ujbbbnjaRiW/RuV+AhU=
+  on:
+    tags: true
+script:
+  - npm run lint
+  - npm run scss-lint
+  - /usr/bin/Xvfb :99 -screen 0 1024x768x24 -ac +extension GLX +render -noreset &
+  - npm run test
+  - npm run build
+  - npm run e2e
+
+before_script:
+  - yarn config set cache-folder yarn-cache
+  - yarn
+  - gem install scss_lint
+  - export DISPLAY=:99
+  - npm run post-install
