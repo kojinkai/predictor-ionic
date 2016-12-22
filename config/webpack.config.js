@@ -23,11 +23,11 @@ const platform = JSON.stringify(process.env.PLATFORM) || JSON.stringify('android
  */
 
 webpackConfig.plugins.push(
-    new webpack.DefinePlugin({
-        'process.env': {
-            'NODE_ENV': nodeEnv,
-            'API_URL': apiUrl,
-            'PLATFORM': platform
-        }
-    })
+  new webpack.DefinePlugin({
+    'process.env': {
+      'NODE_ENV': nodeEnv,
+      'API_URL': apiUrl,
+      'PLATFORM': platform
+    }
+  })
 );
