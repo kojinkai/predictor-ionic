@@ -6,15 +6,15 @@ import { NavController } from 'ionic-angular';
 
 describe('Fixtures Page', () => {
 
-    beforeEach(() => TestBed.configureTestingModule({
-        schemas: [CUSTOM_ELEMENTS_SCHEMA],
-        providers: [
-            {provide: NavController, useValue: mockNavController},
-            FixturesPage,
-        ],
-    }));
+  beforeEach(() => TestBed.configureTestingModule({
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    providers: [
+    {provide: NavController, useValue: mockNavController},
+    FixturesPage,
+    ],
+  }));
 
-    it('should have a url', inject([FixturesPage], (fixtures: FixturesPage) => {
-        expect(fixtures).toBeDefined();
-    }));
+  it('should define a fixtures page controller', inject([FixturesPage], (fixtures: FixturesPage) => {
+    expect(fixtures).toBeDefined();
+  }));
 });
