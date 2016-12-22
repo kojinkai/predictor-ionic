@@ -18,4 +18,5 @@ describe('App', () => {
   // it('should have a title', () => {
   //   expect((home.title).isDisplayed()).toBeTruthy();
   // });
+
 });
