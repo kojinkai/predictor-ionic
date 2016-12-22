@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'ib-page-contact',
-  templateUrl: 'contact.page.html',
+  templateUrl: 'login.page.html',
 })
-export class ContactPage {
+export class LoginPage {
 
   constructor(public navCtrl: NavController) {
 

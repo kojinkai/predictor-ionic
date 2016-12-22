@@ -55,8 +55,8 @@
     "variable-name": [true, "check-format", "allow-leading-underscore", "ban-keywords"],
     "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"],
 
-    "directive-selector": [true, "attribute", "ib", "camelCase"],
-    "component-selector": [true, "element", "ib", "kebab-case"],
+    "directive-selector": [true, "attribute", "pr", "camelCase"],
+    "component-selector": [true, "element", "pr", "kebab-case"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
