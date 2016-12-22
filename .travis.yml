@@ -7,6 +7,9 @@ script:
   - npm run build
   - npm run e2e
 
+before_install:
+  - rvm install 2.2.1
+
 before_script:
   - yarn config set cache-folder yarn-cache
   - yarn
