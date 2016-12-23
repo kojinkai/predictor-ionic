@@ -37,7 +37,6 @@
     "commit": "git-cz",
     "docs": "typedoc --options typedoc.json --exclude '**/*+(e2e|spec|index).ts' ./src/",
     "release": "standard-version --no-verify",
-    "push": "git push --follow-tags origin master",
     "lint": "tslint \"src/**/*.ts\" --exclude=src/**/*.d.ts",
     "scss-lint": "scss-lint",
     "outdated": "npm outdated --depth 0",
