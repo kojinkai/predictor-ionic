@@ -1,0 +1,17 @@
+language: node_js
+node_js: 6
+script:
+  - npm run lint
+  - npm run scss-lint
+  - npm run test
+  - npm run build
+
+before_install:
+  - rvm install 2.2.1
+
+before_script:
+  - yarn config set cache-folder yarn-cache
+  - yarn
+  - gem install scss_lint
+  - export DISPLAY=:99
+  - npm run post-install

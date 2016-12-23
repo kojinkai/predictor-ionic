@@ -9,13 +9,13 @@ class HomeObj {
 
 describe('App', () => {
 
-  beforeEach(() => {
-    browser.get('/');
-  });
+  // beforeEach(() => {
+  //   browser.get('/');
+  // });
 
-  const home: HomeObj = new HomeObj();
+  // const home: HomeObj = new HomeObj();
 
-  it('should have a title', () => {
-    // expect((home.title).isDisplayed()).toBeTruthy();
-  });
+  // it('should have a title', () => {
+  //   expect((home.title).isDisplayed()).toBeTruthy();
+  // });
 });
