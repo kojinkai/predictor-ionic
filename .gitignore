@@ -39,3 +39,6 @@ doc/
 node_modules/
 platforms/
 plugins/
+
+# Scratch Pad
+scratch.txt

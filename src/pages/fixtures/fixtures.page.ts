@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'pr-fixtures-page',
@@ -8,8 +8,10 @@ import { NavController } from 'ionic-angular';
 })
 export class FixturesPage {
 
-  constructor(public navCtrl: NavController) {
+  items: FirebaseListObservable<any[]>;
 
+  constructor(public navCtrl: NavController, af: AngularFire) {
+    this.items = af.database.list('/fixtures');
   }
 
 }
