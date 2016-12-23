@@ -82,7 +82,6 @@ npm run dev
 | `dev`             | Run ionic serve                                        |
 | `build`           | Full production build. Use `--dev` flag for dev build. |
 | `release`         | Generate changelog based on commits                    |
-| `push`            | Shortcut for git push origin master --follow-tags      |
 | `lint`            | Lint with tslint                                       |
 | `scss-lint`       | Lint scss                                              |
 | `test`            | Runs Karma test                                        |
