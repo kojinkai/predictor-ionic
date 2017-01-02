@@ -37,7 +37,7 @@
     "commit": "git-cz",
     "docs": "typedoc --options typedoc.json --exclude '**/*+(e2e|spec|index).ts' ./src/",
     "release": "standard-version --no-verify",
-    "lint": "tslint \"src/**/*.ts\" --exclude=src/**/*.d.ts",
+    "lint": "tslint -c ./tslint.json --project=tsconfig.json",
     "scss-lint": "scss-lint",
     "outdated": "npm outdated --depth 0",
     "post-install": "webdriver-manager update",
