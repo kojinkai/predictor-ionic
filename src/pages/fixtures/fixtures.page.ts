@@ -9,7 +9,6 @@ import { DBService } from '../../services/db.service';
 export class FixturesPage {
 
   items: FirebaseListObservable<any[]>;
-  // items = '';
 
   constructor(dbService: DBService) {
     this.items = dbService.get('/fixtures');
