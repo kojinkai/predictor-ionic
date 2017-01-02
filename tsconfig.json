@@ -18,7 +18,8 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/**/*.d.ts"
   ],
   "compileOnSave": false,
   "atom": {
@@ -27,5 +28,8 @@
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,
     "useWebpackText": true
-  }
+  },
+  "types": [
+    "firebase"
+  ]
 }

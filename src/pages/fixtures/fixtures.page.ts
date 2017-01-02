@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
-import { NavController } from 'ionic-angular';
+import { FirebaseListObservable } from 'angularfire2';
+import { DBService } from '../../services/db.service';
 
 @Component({
   selector: 'pr-fixtures-page',
@@ -8,8 +8,10 @@ import { NavController } from 'ionic-angular';
 })
 export class FixturesPage {
 
-  constructor(public navCtrl: NavController) {
+  items: FirebaseListObservable<any[]>;
 
+  constructor(dbService: DBService) {
+    this.items = dbService.get('/fixtures');
   }
 
 }
