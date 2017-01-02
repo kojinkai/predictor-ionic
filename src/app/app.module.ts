@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home.page';
 import { FixturesPage } from '../pages/fixtures/fixtures.page';
 import { GroupsPage } from '../pages/groups/groups.page';
 import { TabsPage } from '../pages/tabs/tabs.page';
+import { DBService } from '../services/db.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDmh7z_6Zi05soNYtJ7t0WvwcGrQ57oCQM',
@@ -19,8 +20,9 @@ export const firebaseConfig = {
 
 @NgModule({
   imports: [
+    BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
   declarations: [
     MyApp,
@@ -39,6 +41,6 @@ export const firebaseConfig = {
     GroupsPage,
     TabsPage,
   ],
-  providers: [],
+  providers: [DBService],
 })
 export class AppModule {}
