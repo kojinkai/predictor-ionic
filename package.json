@@ -18,6 +18,7 @@
   "homepage": "https://github.com/marcoturi/ionic2-boilerplate",
   "license": "MIT",
   "scripts": {
+    "start": "npm run dev",
     "dev": "bnr dev",
     "build": "bnr build",
     "build-dev": "bnr build-dev",

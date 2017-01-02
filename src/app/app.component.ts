@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs.page';
+import { LoginPage } from '../pages/login/login.page';
 
 @Component({
   templateUrl: 'app.html',
@@ -24,7 +25,7 @@ export class MyApp {
     });
 
     this.pages = [
-      { title: 'Fixtures', component: TabsPage },
+      { title: 'Login', component: LoginPage },
     ];
   }
 

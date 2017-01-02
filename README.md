@@ -4,12 +4,14 @@
 [daviddm-url]: https://david-dm.org/kojinkai/predictor-ionic
 [coveralls-image]: https://coveralls.io/repos/kojinkai/predictor-ionic/badge.svg
 [coveralls-url]: https://coveralls.io/r/kojinkai/predictor-ionic
+[roadmap]: https://trello.com/b/Npci1zEG/predictor
 
 # Predictor Ionic
 [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
 ## Table of Contents
 - [Features](#features)
+- [Roadmap](#roadmap)
 - [Installation & Configuration](#installation)
     - [Quick Start](#quick-start)
     - [NPM scripts commands](#npm-scripts)
@@ -40,6 +42,9 @@
     - Workflow with [Commitizen](https://github.com/commitizen/cz-cli).
     - Automatic changelog.
     - Automatic alignment of app version in config.xml from package.json through cordova hook.
+
+## <a name="roadmap"></a>Roadmap
+The Trello board with the latest work in progress can be found [here][roadmap]
 
 ## <a name="installation"></a>Installation & Configuration
 ### <a name="quick-start"></a>Quick Start
