@@ -8,30 +8,43 @@ import { MockDBService } from '../../services/db/db.service.mock';
 
 describe('Login Page:', () => {
 
-  const mockDBServiceInstance = new(MockDBService);
-
   beforeEach(() => TestBed.configureTestingModule({
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    declarations: [
-      LoginPage,
-    ],
     providers: [
-      {provide: NavController, useValue: mockNavController},
-      {provide: DBService, useValue: mockDBServiceInstance},
+      {provide: NavController, useClass: mockNavController},
+      {provide: DBService, useClass: MockDBService},
       LoginPage,
     ],
   }));
 
-  it('should define a login page controller',
-    inject([LoginPage], (loginComponent: LoginPage) => {
-      expect(loginComponent).toBeDefined();
-    }));
+  describe('logging in', () => {
 
-  it('should call the login method on the DBService',
+    it('should define a login page controller',
+      inject([LoginPage], (loginComponent: LoginPage) => {
+        expect(loginComponent).toBeDefined();
+      }));
 
-    inject([LoginPage, DBService], (loginComponent: LoginPage, mockDBService: DBService) => {
-      spyOn(mockDBService, 'login');
-      loginComponent.login();
-      expect(mockDBService.login).toHaveBeenCalled();
-    }));
+    it('should login via the DBService when the login method is called',
+      inject([LoginPage, DBService], (loginComponent: LoginPage, mockDBService: DBService) => {
+        spyOn(mockDBService, 'login');
+        loginComponent.login();
+        expect(mockDBService.login).toHaveBeenCalled();
+      }));
+  });
+
+  describe('navigating to the tabs page', () => {
+
+    it('should push the tabs page to the top of the navigation stack when goToTabsPage is called',
+      inject([LoginPage, NavController], (loginComponent: LoginPage, mockNavCtrl: NavController) => {
+
+        spyOn(mockNavCtrl, 'push').and.callThrough();
+        loginComponent.goToTabsPage();
+        // @Todo @e2e
+        // use toHaveBeenCalledWith and pass arg from view?
+        // setup protractor
+        expect(mockNavCtrl.push).toHaveBeenCalled();
+        expect(mockNavCtrl.length()).toBe(1);
+
+      }));
+  });
 });

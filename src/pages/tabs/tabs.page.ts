@@ -16,11 +16,11 @@ export class TabsPage {
   // message: string;
   isLoggedIn: boolean;
 
-  constructor(public dbService: DBService, public toastService: ToastService) {
+  constructor(private dbService: DBService, private toastService: ToastService) {
     this.isLoggedIn = this.dbService.getLoggedInState();
   }
 
-  private showLoginToast(message: string): void {
-    this.toastService.diplayToast(message);
+  public showLoginToast(message: string): void {
+    this.toastService.displayToast(message);
   }
 }

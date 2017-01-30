@@ -9,9 +9,9 @@ export class ToastService {
     position: 'top',
   };
 
-  constructor(public toastCtrl: ToastController) {};
+  constructor(private toastCtrl: ToastController) {};
 
-  diplayToast(message) {
+  public displayToast(message) {
     const options = Object.assign({ message: message }, this.config);
     const toast = this.toastCtrl.create(options);
     toast.present();

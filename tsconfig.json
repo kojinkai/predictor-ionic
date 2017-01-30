@@ -15,7 +15,8 @@
     ]
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "fixtures/**/*.ts"
   ],
   "exclude": [
     "node_modules",

@@ -16,8 +16,8 @@ export class DBService {
     return this.uid;
   }
 
-  public get(url: string): FirebaseListObservable<any[]> {
-    return this.af.database.list(url);
+  public getFixtures(): FirebaseListObservable<any[]> {
+    return this.af.database.list('/fixtures');
   }
 
   public getLoggedInState(): boolean {
@@ -31,7 +31,6 @@ export class DBService {
       return this.uid;
     } else {
       const authObj = this.af.auth.getAuth();
-      console.log(authObj);
       return authObj.uid;
     }
   }

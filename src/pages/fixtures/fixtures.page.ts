@@ -11,7 +11,7 @@ export class FixturesPage {
   items: FirebaseListObservable<any[]>;
 
   constructor(dbService: DBService) {
-    this.items = dbService.get('/fixtures');
+    this.items = dbService.getFixtures();
   }
 
 }
