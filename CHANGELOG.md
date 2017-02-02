@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.18.0"></a>
+# [0.18.0](https://github.com/marcoturi/ionic2-boilerplate/compare/v0.17.0...v0.18.0) (2017-02-02)
+
+
+### Features
+
+* **DBSaaS:** Install Firebase with AngularFire ([d2c04a2](https://github.com/marcoturi/ionic2-boilerplate/commit/d2c04a2))
+* **git:** remove ghooks in favor of husky ([cf4337d](https://github.com/marcoturi/ionic2-boilerplate/commit/cf4337d))
+* **login:** Add a login service and call Firebase ([31c8ea5](https://github.com/marcoturi/ionic2-boilerplate/commit/31c8ea5))
+* **travis:** Add travis.yml ([ad5914c](https://github.com/marcoturi/ionic2-boilerplate/commit/ad5914c))
+
+
+
 <a name="0.17.0"></a>
 # [0.17.0](https://github.com/marcoturi/ionic2-boilerplate/compare/v0.16.0...v0.17.0) (2016-12-20)
 
