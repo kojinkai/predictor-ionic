@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule } from 'ionic-angular';
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login.page';
 import { HomePage } from '../pages/home/home.page';
 import { FixturesPage } from '../pages/fixtures/fixtures.page';
 import { GroupsPage } from '../pages/groups/groups.page';
 import { TabsPage } from '../pages/tabs/tabs.page';
-import { DBService } from '../services/db/db.service';
-import { ToastService } from '../services/toast/toast.service';
+import { DBService } from '../providers/db/db.service';
+import { AuthService } from '../providers/auth/auth.service';
+import { ToastService } from '../providers/toast/toast.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDmh7z_6Zi05soNYtJ7t0WvwcGrQ57oCQM',
@@ -19,16 +20,11 @@ export const firebaseConfig = {
   messagingSenderId: '995551138829',
 };
 
-const firebaseAuthConfig = {
-  provider: AuthProviders.Google,
-  method: AuthMethods.Redirect,
-};
-
 @NgModule({
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
   declarations: [
     MyApp,
@@ -49,6 +45,7 @@ const firebaseAuthConfig = {
   ],
   providers: [
     DBService,
+    AuthService,
     ToastService,
   ],
 })

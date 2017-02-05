@@ -3,8 +3,8 @@ import { TestBed, inject } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { mockNavController } from 'ionic-angular/util/mock-providers';
 import { NavController } from 'ionic-angular';
-import { DBService } from '../../services/db/db.service';
-import { MockDBService } from '../../services/db/db.service.mock';
+import { AuthService } from '../../providers/auth/auth.service';
+import { MockAuthService } from '../../providers/auth/auth.service.mock';
 
 describe('Login Page:', () => {
 
@@ -12,23 +12,20 @@ describe('Login Page:', () => {
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     providers: [
       {provide: NavController, useClass: mockNavController},
-      {provide: DBService, useClass: MockDBService},
+      {provide: AuthService, useClass: MockAuthService},
       LoginPage,
     ],
   }));
 
-  describe('logging in', () => {
+  describe('logging in without error', () => {
 
-    it('should define a login page controller',
-      inject([LoginPage], (loginComponent: LoginPage) => {
-        expect(loginComponent).toBeDefined();
-      }));
+    it('should bind the logged in user\'s to the scope',
+      inject([LoginPage, AuthService], (loginComponent: LoginPage) => {
+        loginComponent.signInWithGoogle();
+        const actual = loginComponent.displayName;
+        const expected = 'lewis';
 
-    it('should login via the DBService when the login method is called',
-      inject([LoginPage, DBService], (loginComponent: LoginPage, mockDBService: DBService) => {
-        spyOn(mockDBService, 'login');
-        loginComponent.login();
-        expect(mockDBService.login).toHaveBeenCalled();
+        expect(actual).toBe(expected);
       }));
   });
 
