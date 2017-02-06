@@ -19,7 +19,7 @@ describe('Login Page:', () => {
 
   describe('logging in without error', () => {
 
-    it('should bind the logged in user\'s to the scope',
+    it('should bind the logged in user\'s name to the scope',
       inject([LoginPage, AuthService], (loginComponent: LoginPage) => {
         loginComponent.signInWithGoogle();
         const actual = loginComponent.displayName;
@@ -29,9 +29,9 @@ describe('Login Page:', () => {
       }));
   });
 
-  describe('navigating to the tabs page', () => {
+  describe('navigating to the tabs page using the goToTabsPage method,', () => {
 
-    it('should push the tabs page to the top of the navigation stack when goToTabsPage is called',
+    it('should push the tabs page to the top of the navigation stack',
       inject([LoginPage, NavController], (loginComponent: LoginPage, mockNavCtrl: NavController) => {
 
         spyOn(mockNavCtrl, 'push').and.callThrough();

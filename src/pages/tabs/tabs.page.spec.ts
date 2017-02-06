@@ -26,7 +26,7 @@ describe('Tabs Page:', () => {
         expect(tabs).toBeDefined();
       }));
 
-    it('should fetch the logged in state from the Auth Service',
+    it('should bind the logged in state to the scope',
       inject([TabsPage], (tabs: TabsPage) => {
         expect(tabs.isLoggedIn).toBe(true);
       }));
