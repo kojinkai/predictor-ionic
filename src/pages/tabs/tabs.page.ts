@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DBService } from '../../services/db/db.service';
-import { ToastService } from '../../services/toast/toast.service';
+import { AuthService } from '../../providers/auth/auth.service';
+import { ToastService } from '../../providers/toast/toast.service';
 import { FixturesPage } from '../fixtures/fixtures.page';
 import { GroupsPage } from '../groups/groups.page';
 
@@ -16,8 +16,8 @@ export class TabsPage {
   // message: string;
   isLoggedIn: boolean;
 
-  constructor(private dbService: DBService, private toastService: ToastService) {
-    this.isLoggedIn = this.dbService.getLoggedInState();
+  constructor(private authService: AuthService, private toastService: ToastService) {
+    this.isLoggedIn = this.authService.authenticated;
   }
 
   public showLoginToast(message: string): void {

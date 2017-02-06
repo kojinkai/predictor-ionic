@@ -1,8 +1,8 @@
 import { FixturesPage } from './fixtures.page';
 import { TestBed, inject } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { DBService } from '../../services/db/db.service';
-import { MockDBService } from '../../services/db/db.service.mock';
+import { DBService } from '../../providers/db/db.service';
+import { MockDBService } from '../../providers/db/db.service.mock';
 
 describe('Fixtures Page:', () => {
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
-import { DBService } from '../../services/db/db.service';
+import { DBService } from '../../providers/db/db.service';
 
 @Component({
   selector: 'pr-fixtures-page',
