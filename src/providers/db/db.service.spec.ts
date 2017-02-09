@@ -7,7 +7,6 @@ import { AngularFire } from 'angularfire2';
 
 describe('Testing DBService', () => {
   beforeEach(() => {
-    // spyOn(mockAngularFireDatabase.database, 'list').and.returnValue(mockFixtures$);
 
     TestBed.configureTestingModule({
       providers: [
