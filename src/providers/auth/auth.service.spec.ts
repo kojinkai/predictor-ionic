@@ -1,8 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { AngularFireAuth } from 'angularfire2';
-import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
-import { MockAngularFireAuth } from './auth.service.mock';
+import { MockAngularFireAuth } from '../../../test/mocks';
 
 describe('Testing the AuthService when successfully logged in', () => {
 
