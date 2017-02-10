@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth/auth.service';
-import { TabsPage } from '../tabs/tabs.page';
+import { FixturesPage } from '../';
 
 @Component({
   templateUrl: 'login.page.html',
@@ -20,7 +20,7 @@ export class LoginPage {
 
   // @todo - write the test asap
   goToTabsPage() {
-    this.navCtrl.push(TabsPage);
+    this.navCtrl.push(FixturesPage);
   }
 
   private onSignInSuccess(): void {
