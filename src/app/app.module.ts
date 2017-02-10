@@ -3,13 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { AngularFireModule } from 'angularfire2';
 import { MyApp } from './app.component';
-import { LoginPage } from '../pages/login/login.page';
 import { HomePage } from '../pages/home/home.page';
-import { FixturesPage } from '../pages/fixtures/fixtures.page';
-import { GroupsPage } from '../pages/groups/groups.page';
-import { DBService } from '../providers/db/db.service';
-import { AuthService } from '../providers/auth/auth.service';
-import { ToastService } from '../providers/toast/toast.service';
+import { FixturesPage, GroupsPage, LoginPage } from '../pages';
+import { DBService, AuthService, ToastService } from '../providers';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDmh7z_6Zi05soNYtJ7t0WvwcGrQ57oCQM',
