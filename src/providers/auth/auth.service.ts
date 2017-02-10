@@ -16,14 +16,14 @@ export class AuthService {
     return this.authState !== null;
   }
 
-  signInWithGoogle(): firebase.Promise<FirebaseAuthState> {
+  public signInWithGoogle(): firebase.Promise<FirebaseAuthState> {
     return this.auth$.login({
       provider: AuthProviders.Google,
       method: AuthMethods.Popup,
     });
   }
 
-  displayName(): string {
+  public displayName(): string {
     // @todo refactor
     if (this.authState != null) {
       return this.authState.google.displayName;

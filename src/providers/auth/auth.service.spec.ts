@@ -15,13 +15,17 @@ describe('Testing the AuthService', () => {
     });
   });
 
-  describe('when signing in with google', () => {
+  describe('getting the authenticated state', () => {
 
-    // it('should call getAuth and subscribe on the auth provider (AngularFireAuth)',
-    //   inject([AuthService], (authService: AuthService, mockAngularFireAuth: AngularFireAuth) => {
-    //     spyOn(mockAngularFireAuth, 'getAuth').and.return('Foo');
-    //     expect(authService.authState).toEqual({ state: 'our logged in state' });
-    // }));
+    it('should return true if the user is authenticated',
+      inject([AuthService],
+        (authService: AuthService) => {
+          const actual = authService.authenticated;
+          expect(actual).toBeTruthy();
+    }));
+  });
+
+  describe('when signing in with google', () => {
 
     it('should call the auth provider when logging in',
       inject([AuthService, AngularFireAuth],
@@ -32,6 +36,17 @@ describe('Testing the AuthService', () => {
           const expected = mockAngularFireAuth.getAuth();
           expect(actual).toEqual(expected);
         });
+    }));
+  });
+
+  describe('when getting the user\'s display name', () => {
+
+    it('should return the user\'s name if one is available from the scope',
+      inject([AuthService],
+        (authService: AuthService) => {
+          const actual = authService.displayName();
+          const expected = 'Lewis Nixon';
+          expect(actual).toEqual(expected);
     }));
   });
 });

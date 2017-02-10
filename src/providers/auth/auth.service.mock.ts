@@ -8,8 +8,8 @@ export class MockAngularFireAuth {
     return createMockAuthState('fakeUID', 'foo@bar.com', 'lewis', 3);
   }
 
-  static subscribe(state: Function): void {
-    state(createMockAuthState('fakeUID', 'foo@bar.com', 'lewis', 3));
+  static subscribe(onChangeCallback: Function): void {
+    onChangeCallback(createMockAuthState('fakeUID', 'foo@bar.com', 'lewis', 3));
   }
 
   static login(): Promise<FirebaseAuthState> {
@@ -54,6 +54,9 @@ export function createMockAuthState(uid, email, displayName, provider) {
     email,
     photoURL: `http://my.photo.com/${email}.jpg`,
     providerId: 'some.provider',
+    google: {
+      displayName: 'Lewis Nixon',
+    },
   };
 }
 
