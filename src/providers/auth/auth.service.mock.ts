@@ -1,12 +1,6 @@
-import { Observable } from 'rxjs';
-import { FIXTURES } from '../../../fixtures/fixtures.fixture';
+import { MockPromise } from '../../../test/mocks';
 
 // Mock for consumers of this service
-export class FakePromise {
-  then(callback: Function): void {
-    callback();
-  }
-}
 export class MockAuthService {
 
   get authenticated(): boolean {
@@ -14,7 +8,7 @@ export class MockAuthService {
   }
 
   signInWithGoogle() {
-    return new FakePromise();
+    return new MockPromise();
   }
 
   displayName(): string {
