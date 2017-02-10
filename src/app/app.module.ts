@@ -7,7 +7,6 @@ import { LoginPage } from '../pages/login/login.page';
 import { HomePage } from '../pages/home/home.page';
 import { FixturesPage } from '../pages/fixtures/fixtures.page';
 import { GroupsPage } from '../pages/groups/groups.page';
-import { TabsPage } from '../pages/tabs/tabs.page';
 import { DBService } from '../providers/db/db.service';
 import { AuthService } from '../providers/auth/auth.service';
 import { ToastService } from '../providers/toast/toast.service';
@@ -32,7 +31,6 @@ export const firebaseConfig = {
     HomePage,
     FixturesPage,
     GroupsPage,
-    TabsPage,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,7 +39,6 @@ export const firebaseConfig = {
     HomePage,
     FixturesPage,
     GroupsPage,
-    TabsPage,
   ],
   providers: [
     DBService,

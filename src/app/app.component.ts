@@ -1,9 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-
-import { TabsPage } from '../pages/tabs/tabs.page';
-import { LoginPage } from '../pages/login/login.page';
+import { FixturesPage, GroupsPage, LoginPage } from '../pages';
 
 @Component({
   templateUrl: 'app.html',
@@ -14,7 +12,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  rootPage = TabsPage;
+  rootPage = FixturesPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
@@ -25,6 +23,8 @@ export class MyApp {
     });
 
     this.pages = [
+      { title: 'Fixtures', component: FixturesPage },
+      { title: 'Groups', component: GroupsPage },
       { title: 'Login', component: LoginPage },
     ];
   }
