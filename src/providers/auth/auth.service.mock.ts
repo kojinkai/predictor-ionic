@@ -4,17 +4,23 @@ import { AngularFireAuth, FirebaseAuthState } from 'angularfire2';
 // Mock for this service
 export class MockAngularFireAuth {
 
-  static getAuth() {
-    return createMockAuthState('fakeUID', 'foo@bar.com', 'lewis', 3);
+  userConfig: any[];
+
+  constructor(private args: any[]) {
+    this.userConfig = args;
   }
 
-  static subscribe(onChangeCallback: Function): void {
-    onChangeCallback(createMockAuthState('fakeUID', 'foo@bar.com', 'lewis', 3));
+  public getAuth() {
+    return createMockAuthState(this.userConfig);
   }
 
-  static login(): Promise<FirebaseAuthState> {
+  public subscribe(onChangeCallback: Function): void {
+    onChangeCallback(createMockAuthState(this.userConfig));
+  }
+
+  public login(): Promise<FirebaseAuthState> {
     return new Promise((resolve, reject) => {
-      resolve(createMockAuthState('fakeUID', 'foo@bar.com', 'lewis', 3));
+      resolve(createMockAuthState(this.userConfig));
       reject('bar');
     });
   }
@@ -45,19 +51,24 @@ export class MockFirebaseUser implements firebase.User {
   updateProfile() { return null; }
 }
 
-export function createMockAuthState(uid, email, displayName, provider) {
-  return {
-    uid,
-    provider,
-    auth: createUser(uid, email, displayName),
-    displayName,
-    email,
-    photoURL: `http://my.photo.com/${email}.jpg`,
-    providerId: 'some.provider',
-    google: {
-      displayName: 'Lewis Nixon',
-    },
-  };
+export function createMockAuthState(config: any[]): any {
+  const [ uid, email, displayName, provider ] = config;
+  if (uid !== null) {
+    return {
+      uid,
+      provider,
+      auth: createUser(uid, email, displayName),
+      displayName,
+      email,
+      photoURL: `http://my.photo.com/${email}.jpg`,
+      providerId: 'some.provider',
+      google: {
+        displayName: 'Lewis Nixon',
+      },
+    };
+  }
+
+  return null;
 }
 
 export function createUser(uid, email, displayName) {

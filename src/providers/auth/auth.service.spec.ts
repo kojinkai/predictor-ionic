@@ -4,20 +4,26 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { MockAngularFireAuth } from './auth.service.mock';
 
-describe('Testing the AuthService', () => {
+describe('Testing the AuthService when successfully logged in', () => {
+
+  this.componentName = 'the authService';
+  const mockAfAuth = new MockAngularFireAuth(['fakeUID', 'foo@bar.com', 'lewis', 3]);
+
   beforeEach(() => {
 
     TestBed.configureTestingModule({
       providers: [
         AuthService,
-        { provide: AngularFireAuth, useValue: MockAngularFireAuth },
+        { provide: AngularFireAuth, useValue: mockAfAuth },
       ],
     });
   });
 
-  describe('getting the authenticated state', () => {
+  describe('when getting authService.authenticated', () => {
 
-    it('should return true if the user is authenticated',
+    const method = `${this.componentName}.authenticated`;
+
+    it(`asserting against ${method} should return true`,
       inject([AuthService],
         (authService: AuthService) => {
           const actual = authService.authenticated;
@@ -27,7 +33,9 @@ describe('Testing the AuthService', () => {
 
   describe('when signing in with google', () => {
 
-    it('should call the auth provider when logging in',
+    const method = `${this.componentName}.signInWithGoogle`;
+
+    it(`calling ${method} should call through to auth provider`,
       inject([AuthService, AngularFireAuth],
         (authService: AuthService, mockAngularFireAuth: AngularFireAuth) => {
         authService.signInWithGoogle().then(authState => {
@@ -41,11 +49,41 @@ describe('Testing the AuthService', () => {
 
   describe('when getting the user\'s display name', () => {
 
-    it('should return the user\'s name if one is available from the scope',
+    const method = `${this.componentName}.displayName`;
+
+    it(`calling ${method} should return the user\'s name`,
       inject([AuthService],
         (authService: AuthService) => {
           const actual = authService.displayName();
           const expected = 'Lewis Nixon';
+          expect(actual).toEqual(expected);
+    }));
+  });
+});
+
+describe('Testing the AuthService when auth state is null', () => {
+
+  const mockAfAuth = new MockAngularFireAuth([null]);
+
+  beforeEach(() => {
+
+    TestBed.configureTestingModule({
+      providers: [
+        AuthService,
+        { provide: AngularFireAuth, useValue: mockAfAuth },
+      ],
+    });
+  });
+
+  describe('when getting the user\'s display name', () => {
+
+    const method = `${this.componentName}.displayName`;
+
+    it(`calling ${method} should return an empty string`,
+      inject([AuthService],
+        (authService: AuthService) => {
+          const actual = authService.displayName();
+          const expected = '';
           expect(actual).toEqual(expected);
     }));
   });
