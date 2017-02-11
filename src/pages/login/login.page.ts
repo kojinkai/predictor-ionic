@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AuthService } from '../../providers/auth/auth.service';
+import { AuthService } from '../../providers';
 import { FixturesPage } from '../';
 
 @Component({
@@ -18,7 +18,7 @@ export class LoginPage {
       .then(() => this.onSignInSuccess());
   }
 
-  public goToTabsPage() {
+  public goToFixturesPage() {
     this.navCtrl.push(FixturesPage);
   }
 

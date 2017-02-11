@@ -41,7 +41,7 @@ describe('Testing the Login page component', () => {
       inject([LoginPage, NavController], (loginComponent: LoginPage, mockNavCtrl: NavController) => {
 
         spyOn(mockNavCtrl, 'push').and.callThrough();
-        loginComponent.goToTabsPage();
+        loginComponent.goToFixturesPage();
         // @Todo @e2e
         // use toHaveBeenCalledWith and pass arg from view?
         // setup protractor

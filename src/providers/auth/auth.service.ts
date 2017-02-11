@@ -3,7 +3,7 @@ import { AuthProviders, AngularFireAuth, FirebaseAuthState, AuthMethods } from '
 
 @Injectable()
 export class AuthService {
-  public avatar: string;
+
   private authState: FirebaseAuthState;
 
   constructor(public auth$: AngularFireAuth) {
@@ -17,6 +17,8 @@ export class AuthService {
     return this.authState !== null;
   }
 
+  // public
+  // -------------------------------------------------------------
   public signInWithGoogle(): firebase.Promise<FirebaseAuthState> {
     return this.auth$.login({
       provider: AuthProviders.Google,
@@ -32,6 +34,8 @@ export class AuthService {
     return this.getPropertyFromAuthState('photoURL');
   }
 
+  // private
+  // -------------------------------------------------------------
   private getPropertyFromAuthState(prop) {
     if (this.authState != null) {
       return this.authState.google[prop];
