@@ -3,6 +3,7 @@ import { AuthProviders, AngularFireAuth, FirebaseAuthState, AuthMethods } from '
 
 @Injectable()
 export class AuthService {
+  public avatar: string;
   private authState: FirebaseAuthState;
 
   constructor(public auth$: AngularFireAuth) {
@@ -23,10 +24,17 @@ export class AuthService {
     });
   }
 
-  public displayName(): string {
-    // @todo refactor
+  public getDisplayName(): string {
+    return this.getPropertyFromAuthState('displayName');
+  }
+
+  public getUserAvatarUrl(): string {
+    return this.getPropertyFromAuthState('photoURL');
+  }
+
+  private getPropertyFromAuthState(prop) {
     if (this.authState != null) {
-      return this.authState.google.displayName;
+      return this.authState.google[prop];
     } else {
       return '';
     }

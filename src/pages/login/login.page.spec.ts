@@ -6,7 +6,9 @@ import { NavController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth/auth.service';
 import { MockAuthService } from '../../providers/auth/auth.service.mock';
 
-describe('Login Page:', () => {
+describe('Testing the Login page component', () => {
+
+  this.componentName = 'loginPage component';
 
   beforeEach(() => TestBed.configureTestingModule({
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -17,9 +19,11 @@ describe('Login Page:', () => {
     ],
   }));
 
-  describe('logging in without error', () => {
+  describe('when logging in without error', () => {
 
-    it('should bind the logged in user\'s name to the scope',
+    const method = `${this.componentName}'s signInWithGoogle method`;
+
+    it(`calling the ${method} should bind the logged in user\'s name to the scope`,
       inject([LoginPage, AuthService], (loginComponent: LoginPage) => {
         loginComponent.signInWithGoogle();
         const actual = loginComponent.displayName;
@@ -29,9 +33,11 @@ describe('Login Page:', () => {
       }));
   });
 
-  describe('navigating to the tabs page using the goToTabsPage method,', () => {
+  describe('when navigating to the tabs page', () => {
 
-    it('should push the tabs page to the top of the navigation stack',
+    const method = `${this.componentName}'s goToTabsPage method`;
+
+    it(`calling the ${method} should push the tabs page to the top of the navigation stack`,
       inject([LoginPage, NavController], (loginComponent: LoginPage, mockNavCtrl: NavController) => {
 
         spyOn(mockNavCtrl, 'push').and.callThrough();

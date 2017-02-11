@@ -12,19 +12,18 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, private _authService: AuthService) {}
 
-  signInWithGoogle(): void {
+  public signInWithGoogle(): void {
 
     this._authService.signInWithGoogle()
       .then(() => this.onSignInSuccess());
   }
 
-  // @todo - write the test asap
-  goToTabsPage() {
+  public goToTabsPage() {
     this.navCtrl.push(FixturesPage);
   }
 
   private onSignInSuccess(): void {
-    this.displayName = this._authService.displayName();
+    this.displayName = this._authService.getDisplayName();
   }
 
 }
