@@ -14,15 +14,15 @@
 
 $button: '.button';
 $ion-label: 'ion-label';
- 
- #{$button} {
+
+#{$button} {
   @include sans-serif;
 }
 
- #{$button}.button-ios {
+#{$button}.button-ios {
   font-size: $standard-button-size;
 }
- 
- #{$ion-label} {
+
+#{$ion-label} {
   @include sans-serif;
 }
