@@ -1,12 +1,12 @@
-$module: '.fixture';
+$fixture: '.fixture';
 
-#{$module} {
+#{$fixture} {
   display: flex;
   justify-content: space-between;
   position: relative;
 }
 
-#{$module}__divider {
+#{$fixture}__divider {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
