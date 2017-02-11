@@ -1,0 +1,12 @@
+.account-overview {
+  &__panel {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__avatar {
+    border-radius: 50%;
+    max-width: 100px;
+  }
+}

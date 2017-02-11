@@ -11,6 +11,20 @@
         {{p.title}}
       </button>
     </ion-list>
+
+    <div class="account-overview" padding>
+
+      <div class="account-overview__panel" *ngIf="!isAuthenticated">
+        <p>you are not signed in</p>
+        <button ion-button block outline color="dark" (click)="signInWithGoogle()">Log in</button>
+      </div>
+
+      <div class="account-overview__panel" *ngIf="isAuthenticated">
+        <p>Welcome Back {{displayName}}</p>
+        <img class="account-overview__avatar" [src]="photoURL">
+        <button ion-button clear (click)="signInWithGoogle()">log out</button>
+      </div>      
+    </div>    
   </ion-content>
 
 </ion-menu>
