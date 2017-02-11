@@ -1,25 +1,31 @@
-$module: '.account-overview';
+$account-overview: '.account-overview';
 
-#{$module} {
+#{$account-overview} {
   padding: 0 $padding $padding;
 }
 
-#{$module}__message {
+#{$account-overview}__message {
+  @include standard-text;
   display: block;
-  margin: 0;
+  margin: 0 0 20px;
+  text-align: center;
 }
 
-#{$module}__panel {
+#{$account-overview}__panel {
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 
-#{$module}__avatar {
-  margin: 10px 0;
+#{$account-overview}__avatar {
+  margin: 0 0 20px;
+}
+
+#{$account-overview}__avatar--logged-in {
+  border-radius: 50%;
   max-width: 100px;
 }
 
-#{$module}__avatar--logged-in {
-  border-radius: 50%;
+#{$account-overview}__avatar--anonymous {
+  max-width: 85px;
 }

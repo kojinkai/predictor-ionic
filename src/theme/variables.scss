@@ -23,7 +23,7 @@ $background-color:  #fff;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #387ef5,
+  primary:    rgba(72, 123, 53, 0.88),
   secondary:  #487b35,
   danger:     #f53d3d,
   light:      #484848,
@@ -58,3 +58,10 @@ $ionicons-font-path: '../assets/fonts';
 // Grid
 // --------------------------------------------------
 $padding: 16px;
+
+// Typography
+// --------------------------------------------------
+$sans-serif: 'CallunaSans-Regular';
+$standard-text-size: 1.5rem;
+$standard-button-size: 1.8rem;
+@import './typography';

@@ -15,15 +15,15 @@
     <div class="account-overview">
 
       <div class="account-overview__panel" *ngIf="!isAuthenticated">
-        <p class="account-overview__message">you are not signed in</p>
-        <img class="account-overview__avatar" src="assets/images/blank_avatar.svg">
-        <button ion-button block outline color="dark" (click)="signInWithGoogle()">Log in</button>
+        <img class="account-overview__avatar account-overview__avatar--anonymous" src="assets/images/blank_avatar.svg">
+        <p class="account-overview__message">You are not currently signed in</p>
+        <button ion-button block (click)="signInWithGoogle()">Log in with Google</button>
       </div>
 
       <div class="account-overview__panel" *ngIf="isAuthenticated">
-        <p class="account-overview__message">Welcome Back {{displayName}}</p>
+        <p class="account-overview__message">Well, hey there {{displayName}}.</p>
         <img class="account-overview__avatar account-overview__avatar--logged-in" [src]="photoURL">
-        <button ion-button clear (click)="signInWithGoogle()">log out</button>
+        <button ion-button block outline (click)="signInWithGoogle()">log out</button>
       </div>      
     </div>    
   </ion-content>
