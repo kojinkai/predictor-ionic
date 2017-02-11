@@ -1,0 +1,31 @@
+$account-overview: '.account-overview';
+
+#{$account-overview} {
+  padding: 0 $padding $padding;
+}
+
+#{$account-overview}__message {
+  @include standard-text;
+  display: block;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+#{$account-overview}__panel {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#{$account-overview}__avatar {
+  margin: 0 0 20px;
+}
+
+#{$account-overview}__avatar--logged-in {
+  border-radius: 50%;
+  max-width: 100px;
+}
+
+#{$account-overview}__avatar--anonymous {
+  max-width: 8.5rem;
+}

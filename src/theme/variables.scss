@@ -23,17 +23,17 @@ $background-color:  #fff;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #387ef5,
-  secondary:  #32db64,
+  primary:    rgba(72, 123, 53, 0.88),
+  secondary:  #487b35,
   danger:     #f53d3d,
-  light:      #97c19e,
+  light:      #484848,
   dark:       #222,
   favorite:   #69bb7b
 );
 
 // Tabs Color Overrides
-$tabs-background: #39671e;
-$toolbar-background: #39671e;
+$tabs-background: #487b35;
+$toolbar-background: #487b35;
 $tabs-tab-color-inactive: #fff;
 
 
@@ -54,3 +54,14 @@ $tabs-tab-color-inactive: #fff;
 
 $ionicons-font-path: '../assets/fonts';
 @import 'ionicons';
+
+// Grid
+// --------------------------------------------------
+$padding: 16px;
+
+// Typography
+// --------------------------------------------------
+$sans-serif: 'CallunaSans-Regular';
+$standard-text-size: 1.5rem;
+$standard-button-size: 1.8rem;
+@import './typography';

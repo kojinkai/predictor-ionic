@@ -10,7 +10,7 @@
 <ion-content>
   <ion-item-group *ngFor="let item of items | async">
     <ion-item-divider color="light">{{ item.name }}</ion-item-divider>
-    <ion-item *ngFor="let fixture of item.fixtures" text-center>
+    <ion-item *ngFor="let fixture of item.fixtures">
       <div class="fixture">
         <span class="fixture__team">
           {{ fixture.home }}          

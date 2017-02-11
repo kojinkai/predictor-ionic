@@ -11,8 +11,12 @@ export class MockAuthService {
     return new MockPromise();
   }
 
-  displayName(): string {
+  getDisplayName(): string {
     return 'lewis';
+  }
+
+  getUserAvatarUrl(): string {
+    return 'http://example.com/img/avatar.png';
   }
 
 }

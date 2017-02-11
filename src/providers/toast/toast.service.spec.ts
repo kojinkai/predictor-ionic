@@ -4,7 +4,9 @@ import { ToastController } from 'ionic-angular';
 import { TestBed, inject } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-describe('Toast Service:', () => {
+describe('Testing the Toast Service:', () => {
+
+  this.componentName = 'toastService';
 
   beforeEach(() => TestBed.configureTestingModule({
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -14,22 +16,20 @@ describe('Toast Service:', () => {
     ],
   }));
 
-  describe('Bootstrapping the Toast Service', () => {
+  describe('when bootstrapping the Toast Service', () => {
 
-    it('should define a Toast Service',
-      inject([ToastService], (toastService: ToastService) => {
-        expect(toastService).toBeDefined();
-      }));
-
-    it('should bind a default config to the scope',
+    it(`the ${this.componentName} should bind a default config to the scope`,
       inject([ToastService], (toastService: ToastService) => {
         expect(toastService.config).toEqual(MOCK_TOAST_CONFIG);
       }));
 
   });
 
-  describe('displaying a toast message', () => {
-    it('should call the toastController with a config object containing the user\'s message',
+  describe('when displaying a toast message', () => {
+
+    const method = `${this.componentName}.displayToast`;
+
+    it(`calling ${method} should call the toastController with a valid config object`,
       inject([ToastService, ToastController], (toastService: ToastService, mockToastController: ToastController) => {
         spyOn(mockToastController, 'create').and.callThrough();
         toastService.displayToast('hello toastController');

@@ -63,6 +63,7 @@ function createMockAuthState(config: any[]): any {
       providerId: 'some.provider',
       google: {
         displayName: 'Lewis Nixon',
+        photoURL: `http://my.photo.com/${email}.jpg`,
       },
     };
   }

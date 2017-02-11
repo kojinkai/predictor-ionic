@@ -1,0 +1,28 @@
+@mixin sans-serif($fontsize: inherit) {
+  font-family: $sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: $fontsize;
+}
+
+@mixin standard-text {
+  @include sans-serif($standard-text-size);
+}
+
+// Begin Styles
+// --------------------------------------------------
+
+$button: '.button';
+$ion-label: 'ion-label';
+
+#{$button} {
+  @include sans-serif;
+}
+
+#{$button}.button-ios {
+  font-size: $standard-button-size;
+}
+
+#{$ion-label} {
+  @include sans-serif;
+}

@@ -5,7 +5,7 @@ import { MockAngularFireAuth } from '../../../test/mocks';
 
 describe('Testing the AuthService when successfully logged in', () => {
 
-  this.componentName = 'the authService';
+  this.componentName = 'authService';
   const mockAfAuth = new MockAngularFireAuth(['fakeUID', 'foo@bar.com', 'lewis', 3]);
 
   beforeEach(() => {
@@ -48,13 +48,26 @@ describe('Testing the AuthService when successfully logged in', () => {
 
   describe('when getting the user\'s display name', () => {
 
-    const method = `${this.componentName}.displayName`;
+    const method = `${this.componentName}.getDisplayName`;
 
     it(`calling ${method} should return the user\'s name`,
       inject([AuthService],
         (authService: AuthService) => {
-          const actual = authService.displayName();
+          const actual = authService.getDisplayName();
           const expected = 'Lewis Nixon';
+          expect(actual).toEqual(expected);
+    }));
+  });
+
+  describe('when getting the user\'s avatar', () => {
+
+    const method = `${this.componentName}.getUserAvatarUrl`;
+
+    it(`calling ${method} should return the url`,
+      inject([AuthService],
+        (authService: AuthService) => {
+          const actual = authService.getUserAvatarUrl();
+          const expected = 'http://my.photo.com/foo@bar.com.jpg';
           expect(actual).toEqual(expected);
     }));
   });
@@ -76,12 +89,12 @@ describe('Testing the AuthService when auth state is null', () => {
 
   describe('when getting the user\'s display name', () => {
 
-    const method = `${this.componentName}.displayName`;
+    const method = `${this.componentName}.getDisplayName`;
 
     it(`calling ${method} should return an empty string`,
       inject([AuthService],
         (authService: AuthService) => {
-          const actual = authService.displayName();
+          const actual = authService.getDisplayName();
           const expected = '';
           expect(actual).toEqual(expected);
     }));

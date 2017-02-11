@@ -6,6 +6,9 @@ import { FIXTURES } from '../../../fixtures/fixtures.fixture';
 import { AngularFire } from 'angularfire2';
 
 describe('Testing DBService', () => {
+
+  this.componentName = 'DBService';
+
   beforeEach(() => {
 
     TestBed.configureTestingModule({
@@ -16,8 +19,11 @@ describe('Testing DBService', () => {
     });
   });
 
-  describe('when calling getFixtures', () => {
-    it('should return an observable list of fixtures',
+  describe('when getting a list of fixtures', () => {
+
+    const method = `${this.componentName}.getFixtures`;
+
+    it(`calling ${method} should return an observable list of fixtures`,
       inject([DBService], (dbService: DBService) => {
 
         const fixtures$ = dbService.getFixtures();
