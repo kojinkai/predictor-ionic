@@ -4,7 +4,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { AngularFireModule } from 'angularfire2';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home.page';
-import { FixturesPage, GroupsPage, LoginPage } from '../pages';
+import { FixturesPage, GroupsPage } from '../pages';
 import { DBService, AuthService, ToastService } from '../providers';
 
 export const firebaseConfig = {
@@ -23,7 +23,6 @@ export const firebaseConfig = {
   ],
   declarations: [
     MyApp,
-    LoginPage,
     HomePage,
     FixturesPage,
     GroupsPage,
@@ -31,7 +30,6 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage,
     HomePage,
     FixturesPage,
     GroupsPage,
