@@ -6,6 +6,14 @@ $fixture: '.fixture';
   position: relative;
 }
 
+#{$fixture}--home-win {
+
+}
+
+#{$fixture}--away-win {
+
+}
+
 #{$fixture}__divider {
   position: absolute;
   left: 50%;
