@@ -42,3 +42,6 @@ plugins/
 
 # Scratch Pad
 scratch.txt
+
+# DB Exports
+backups/
