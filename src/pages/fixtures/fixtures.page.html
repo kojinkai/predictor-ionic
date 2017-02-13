@@ -11,7 +11,7 @@
   <ion-list>
     <ion-item-group *ngFor="let gameweek of gameweeks | async">
       <ion-item-divider color="light">{{ gameweek.name }}</ion-item-divider>
-      <ion-item-sliding *ngFor="let fixture of gameweek.fixtures">
+      <ion-item-sliding *ngFor="let fixture of gameweek.fixtures" #slidingitem>
         <ion-item>
           <div 
             class="fixture"
@@ -32,13 +32,13 @@
         </ion-item>
 
         <ion-item-options side="left">
-          <button ion-button (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.home)">
+          <button ion-button (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.home, slidingitem)">
             Home Win
           </button>
         </ion-item-options>
 
         <ion-item-options side="right">
-          <button ion-button (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.away)">
+          <button ion-button (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.away, slidingitem)">
             Away Win
           </button>
         </ion-item-options>

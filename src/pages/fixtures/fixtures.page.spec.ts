@@ -22,6 +22,5 @@ describe('Testing the Fixtures page component', () => {
       inject([FixturesPage], (fixturesComponent: FixturesPage) => {
         expect(fixturesComponent).toBeDefined();
       }));
-
   });
 });

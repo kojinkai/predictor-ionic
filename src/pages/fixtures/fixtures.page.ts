@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { ItemSliding } from 'ionic-angular';
 import { FirebaseListObservable } from 'angularfire2';
 import { DBService } from '../../providers';
 import { ToastService } from '../../providers';
+
 import _ from 'lodash';
 
 interface Gameweek {
@@ -27,8 +29,11 @@ export class FixturesPage {
     this.gameweeks = _dbService.getFixtures();
   }
 
-  public pickTeamToWin(key: string, fixtures: Array<Fixture>, prediction: string): void {
-    //
+  public pickTeamToWin(key: string, fixtures: Array<Fixture>, prediction: string, slidingItem: ItemSliding): void {
+
+    // close the slide menu
+    slidingItem.close();
+
     // we receive the Gameweek's key, fixtures and a prediction from the view
     // but we want to find the specific match in that gameweek to add a prediction to
     // first, grab the index of that fixture from the gameweek's, fixtures...
