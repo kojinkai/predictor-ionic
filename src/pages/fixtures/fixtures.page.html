@@ -13,22 +13,7 @@
       <ion-item-divider color="light">{{ gameweek.name }}</ion-item-divider>
       <ion-item-sliding *ngFor="let fixture of gameweek.fixtures" #slidingitem>
         <ion-item>
-          <div 
-            class="fixture"
-            [ngClass]="{
-              'fixture--home-win': fixture.prediction === fixture.home,
-              'fixture--away-win': fixture.prediction === fixture.away
-            }">
-            <span class="fixture__team">
-              {{ fixture.home }}   
-            </span>
-            <span class="fixture__divider">
-              v
-            </span>
-            <span class="fixture__team">
-              {{ fixture.away }}
-            </span>
-          </div>
+          <pr-fixture [matchdata]="fixture"></pr-fixture>
         </ion-item>
 
         <ion-item-options side="left">

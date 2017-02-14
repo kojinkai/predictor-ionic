@@ -1,0 +1,24 @@
+<div 
+  class="fixture"
+  [ngClass]="{
+    'fixture--home-win': matchdata.prediction === matchdata.home,
+    'fixture--away-win': matchdata.prediction === matchdata.away
+  }">
+  <span class="fixture__team">
+    {{ matchdata.home }}   
+  </span>
+  <ion-icon name="flag"
+    class="fixture__winicon fixture__winicon--home"
+    [ngClass]="{'active': matchdata.prediction === matchdata.home}">
+  </ion-icon>
+  <span class="fixture__divider">
+    v
+  </span>
+  <ion-icon name="flag"
+    class="fixture__winicon fixture__winicon--away"
+    [ngClass]="{'active': matchdata.prediction === matchdata.away}">
+  </ion-icon>
+  <span class="fixture__team">
+    {{ matchdata.away }}
+  </span>
+</div>
