@@ -1,6 +1,6 @@
 export const MOCK_TOAST_CONFIG = {
   duration: 3000,
-  position: 'top',
+  position: 'bottom',
 };
 
 export class MockToastService {

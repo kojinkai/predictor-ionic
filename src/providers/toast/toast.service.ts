@@ -6,7 +6,7 @@ export class ToastService {
 
   config = {
     duration: 3000,
-    position: 'top',
+    position: 'bottom',
   };
 
   constructor(private toastCtrl: ToastController) {};

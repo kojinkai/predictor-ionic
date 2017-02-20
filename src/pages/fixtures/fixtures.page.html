@@ -8,20 +8,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-item-group *ngFor="let item of items | async">
-    <ion-item-divider color="light">{{ item.name }}</ion-item-divider>
-    <ion-item *ngFor="let fixture of item.fixtures">
-      <div class="fixture">
-        <span class="fixture__team">
-          {{ fixture.home }}          
-        </span>
-        <span class="fixture__divider">
-          v
-        </span>
-        <span class="fixture__team">
-          {{ fixture.away }}
-        </span>
-      </div>
-    </ion-item>
-  </ion-item-group>
+  <ion-list>
+    <ion-item-group *ngFor="let gameweek of gameweeks | async">
+      <ion-item-divider color="light">{{ gameweek.name }}</ion-item-divider>
+      <ion-item-sliding *ngFor="let fixture of gameweek.fixtures" #slidingitem>
+        <ion-item>
+          <pr-fixture [matchdata]="fixture"></pr-fixture>
+        </ion-item>
+
+        <ion-item-options side="left">
+          <button ion-button (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.home, slidingitem)">
+            Home Win
+          </button>
+        </ion-item-options>
+
+        <ion-item-options side="right">
+          <button ion-button (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.away, slidingitem)">
+            Away Win
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-item-group>
+  </ion-list>
 </ion-content>

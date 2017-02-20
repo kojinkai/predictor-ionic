@@ -1,0 +1,63 @@
+$fixture: '.fixture';
+$parent: pr-fixtures-page;
+
+@mixin fixtureicon {
+  color: $pr-color-accent;
+  font-size: 32px;
+  position: absolute;
+  transition: transform 0.6s;
+}
+
+#{$fixture} {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+  position: relative;
+}
+
+#{$fixture}__team {
+  display: inline-block;
+}
+
+#{$fixture}__divider {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#{$fixture}__winicon {
+  @include fixtureicon;
+}
+
+#{$fixture}__winicon--home {
+  left: 50%;
+  transform: translate(-45px, -40px);
+}
+
+
+#{$fixture}__winicon--home.active {
+  transform: translate(-45px, 4px);
+}
+
+#{$fixture}__winicon--away {
+  transform: translate(45px, 40px);
+  right: 50%;
+}
+
+#{$fixture}__winicon--away.active {
+  transform: translate(45px, 4px);
+}
+
+// ionic overrides
+.item-ios {
+  padding-left: 0;
+}
+
+.item-block .item-inner {
+  padding-left: 16px;
+}
+
+.item-divider-ios {
+  padding-left: 16px;
+}

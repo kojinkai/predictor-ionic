@@ -1,8 +1,7 @@
 import { FixturesPage } from './fixtures.page';
 import { TestBed, inject } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { DBService } from '../../providers/db/db.service';
-import { MockDBService } from '../../providers/db/db.service.mock';
+import { DBService, MockDBService, ToastService, MockToastService } from '../../providers';
 
 describe('Testing the Fixtures page component', () => {
 
@@ -12,6 +11,7 @@ describe('Testing the Fixtures page component', () => {
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     providers: [
       {provide: DBService, useClass: MockDBService},
+      {provide: ToastService, useClass: MockToastService},
       FixturesPage,
     ],
   }));
@@ -22,7 +22,5 @@ describe('Testing the Fixtures page component', () => {
       inject([FixturesPage], (fixturesComponent: FixturesPage) => {
         expect(fixturesComponent).toBeDefined();
       }));
-
   });
-
 });

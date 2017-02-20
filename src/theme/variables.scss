@@ -13,6 +13,11 @@
 $text-color:        #000;
 $background-color:  #fff;
 
+// My Custom colors
+// --------------------------------------------------
+$pr-color-accent: #f9c90b;
+$pr-color-primary: #487b35;
+
 
 // Named Color Variables
 // --------------------------------------------------
@@ -28,7 +33,9 @@ $colors: (
   danger:     #f53d3d,
   light:      #484848,
   dark:       #222,
-  favorite:   #69bb7b
+  favorite:   #69bb7b,
+  pr-color-accent: #f7d13a,
+  pr-color-primary: #487b35
 );
 
 // Tabs Color Overrides

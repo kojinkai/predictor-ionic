@@ -15,7 +15,7 @@
     <div class="account-overview">
 
       <div class="account-overview__panel" *ngIf="!isAuthenticated">
-        <img class="account-overview__avatar account-overview__avatar--anonymous" src="assets/images/blank_avatar.svg">
+        <img class="account-overview__avatar account-overview__avatar--anonymous" src="assets/images/blank_avatar.svg" alt="anonymous avatar">
         <p class="account-overview__message">You are not currently signed in</p>
         <button ion-button block (click)="signInWithGoogle()">Log in with Google</button>
       </div>
