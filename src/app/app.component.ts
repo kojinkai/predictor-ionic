@@ -31,7 +31,7 @@ export class MyApp {
       { title: 'Groups', component: GroupsPage },
     ];
 
-    this.updateBindings();
+    _authService.auth$.subscribe(_ => this.updateBindings());
 
   }
 
@@ -53,6 +53,7 @@ export class MyApp {
   }
 
   private updateBindings(): void {
+
     this.isAuthenticated = this._authService.authenticated;
     this.displayName = this._authService.getDisplayName();
     this.photoURL = this._authService.getUserAvatarUrl();

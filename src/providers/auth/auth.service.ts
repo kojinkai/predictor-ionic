@@ -7,7 +7,6 @@ export class AuthService {
   private authState: FirebaseAuthState;
 
   constructor(public auth$: AngularFireAuth) {
-    this.authState = auth$.getAuth();
     auth$.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
     });
