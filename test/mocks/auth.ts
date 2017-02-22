@@ -35,6 +35,7 @@ class MockFirebaseUser implements firebase.User {
   isAnonymous: boolean;
   providerData: (firebase.UserInfo)[];
   refreshToken: string;
+  toJSON: Function;
 
   delete() { return null; }
   getToken() { return null; }
