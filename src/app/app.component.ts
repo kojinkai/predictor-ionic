@@ -47,13 +47,16 @@ export class MyApp {
       .then(() => this.onSignInSuccess());
   }
 
+  public logout(): void {
+    this._authService.logout();
+  }
+
   private onSignInSuccess(): void {
     this.displayName = this._authService.getDisplayName();
     this.updateBindings();
   }
 
   private updateBindings(): void {
-
     this.isAuthenticated = this._authService.authenticated;
     this.displayName = this._authService.getDisplayName();
     this.photoURL = this._authService.getUserAvatarUrl();
