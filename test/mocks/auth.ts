@@ -45,7 +45,6 @@ class MockFirebaseUser implements firebase.User {
   isAnonymous: boolean;
   providerData: (firebase.UserInfo)[];
   refreshToken: string;
-  toJSON: Function;
 
   delete() { return null; }
   getToken() { return null; }
@@ -59,6 +58,7 @@ class MockFirebaseUser implements firebase.User {
   updateEmail() { return null; }
   updatePassword() { return null; }
   updateProfile() { return null; }
+  toJSON() { return null; }
 }
 
 function createMockAuthState(config: any[]): any {
