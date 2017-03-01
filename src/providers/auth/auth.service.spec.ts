@@ -46,6 +46,19 @@ describe('Testing the AuthService when successfully logged in', () => {
     }));
   });
 
+  describe('when logging out', () => {
+
+    const method = `${this.componentName}.logout`;
+
+    it(`calling ${method} should call through to auth provider`,
+      inject([AuthService, AngularFireAuth],
+        (authService: AuthService, mockAngularFireAuth: AngularFireAuth) => {
+        spyOn(mockAngularFireAuth, 'logout');
+        authService.logout();
+        expect(mockAngularFireAuth.logout).toHaveBeenCalled();
+    }));
+  });
+
   describe('when getting the user\'s display name', () => {
 
     const method = `${this.componentName}.getDisplayName`;

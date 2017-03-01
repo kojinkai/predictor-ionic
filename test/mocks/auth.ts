@@ -1,4 +1,4 @@
-import { AngularFireAuth, FirebaseAuthState } from 'angularfire2';
+import { FirebaseAuthState } from 'angularfire2';
 
 // Mock for this service
 export class MockAngularFireAuth {
@@ -18,11 +18,21 @@ export class MockAngularFireAuth {
   }
 
   public login(): Promise<FirebaseAuthState> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve: Function, reject: Function): void => {
       resolve(createMockAuthState(this.userConfig));
       reject('bar');
     });
   }
+
+  // So according to the docs the logout method of AngularFire Auth
+  // returns Promise<void> but the compiler is complaining that it's not
+  // returning a thenable object so I am mocking what I think is the correct interface here.
+  // Something is awry but we are being logged out ok we just can't pass any callbacks to the action
+  // for now.
+  // https://github.com/angular/angularfire2/blob/master/docs/api-reference.md
+  //
+  public logout(): void {}
+
 }
 
 class MockFirebaseUser implements firebase.User {
@@ -35,7 +45,6 @@ class MockFirebaseUser implements firebase.User {
   isAnonymous: boolean;
   providerData: (firebase.UserInfo)[];
   refreshToken: string;
-  toJSON: Function;
 
   delete() { return null; }
   getToken() { return null; }
@@ -49,6 +58,7 @@ class MockFirebaseUser implements firebase.User {
   updateEmail() { return null; }
   updatePassword() { return null; }
   updateProfile() { return null; }
+  toJSON() { return null; }
 }
 
 function createMockAuthState(config: any[]): any {

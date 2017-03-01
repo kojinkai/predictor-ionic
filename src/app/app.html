@@ -23,7 +23,7 @@
       <div class="account-overview__panel" *ngIf="isAuthenticated">
         <p class="account-overview__message">Well, hey there {{displayName}}.</p>
         <img class="account-overview__avatar account-overview__avatar--logged-in" [src]="photoURL">
-        <button ion-button block outline (click)="signInWithGoogle()">log out</button>
+        <button ion-button block outline (click)="logout()">log out</button>
       </div>      
     </div>    
   </ion-content>

@@ -25,6 +25,10 @@ export class AuthService {
     });
   }
 
+  public logout() {
+    return this.auth$.logout();
+  }
+
   public getDisplayName(): string {
     return this.getPropertyFromAuthState('displayName');
   }
