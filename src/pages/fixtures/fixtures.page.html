@@ -12,20 +12,44 @@
     <ion-item-group *ngFor="let gameweek of gameweeks | async">
       <ion-item-divider color="light">{{ gameweek.name }}</ion-item-divider>
       <ion-item-sliding *ngFor="let fixture of gameweek.fixtures" #slidingitem>
+
         <ion-item>
           <pr-fixture [matchdata]="fixture"></pr-fixture>
         </ion-item>
 
         <ion-item-options side="left">
-          <button ion-button (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.home, slidingitem)">
-            Home Win
+          <button 
+            ion-button
+            icon-only
+            color="primary"
+            *ngIf="fixture.prediction === fixture.home"
+            (click)="resetSelection(gameweek.$key, gameweek.fixtures, fixture.home, slidingitem)">
+              <ion-icon name="ios-trash"></ion-icon>
+          </button>
+          <button 
+            ion-button
+            *ngIf="fixture.prediction !== fixture.home"
+            (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.home, slidingitem)">
+              Home Win
           </button>
         </ion-item-options>
 
         <ion-item-options side="right">
-          <button ion-button (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.away, slidingitem)">
-            Away Win
+          <button 
+            ion-button
+            icon-only
+            color="primary"
+            *ngIf="fixture.prediction === fixture.away"
+            (click)="resetSelection(gameweek.$key, gameweek.fixtures, fixture.home, slidingitem)">
+              <ion-icon name="ios-trash"></ion-icon>
           </button>
+          <button 
+            ion-button 
+            *ngIf="fixture.prediction !== fixture.away"
+            (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.away, slidingitem)">
+              Away Win
+          </button>
+
         </ion-item-options>
       </ion-item-sliding>
     </ion-item-group>
