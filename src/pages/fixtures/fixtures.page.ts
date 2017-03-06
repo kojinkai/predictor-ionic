@@ -37,8 +37,7 @@ export class FixturesPage {
     // we receive the Gameweek's key, fixtures and a prediction from the view
     // but we want to find the specific match in that gameweek to add a prediction to
     // first, grab the index of that fixture from the gameweek's, fixtures...
-    // @todo - refactor
-    const index = _.findIndex(fixtures, fixture => fixture.home === prediction || fixture.away === prediction);
+    const index = this.getFixturesIndexFromGameweek(fixtures, prediction);
 
     // set the prediction property of the fixtures to the team backed to win...
     fixtures[index].prediction = prediction;
@@ -57,8 +56,7 @@ export class FixturesPage {
     // we receive the Gameweek's key, and fixtures from the view
     // but we want to find the specific match in that gameweek to remove the prediction from§
     // first, grab the index of that fixture from the gameweek's, fixtures...
-    // @todo - refactor
-    const index = _.findIndex(fixtures, fixture => fixture.home === prediction || fixture.away === prediction);
+    const index = this.getFixturesIndexFromGameweek(fixtures, prediction);
 
     // set the prediction property of the fixtures to the team backed to win...
     fixtures[index].prediction = null;
@@ -67,5 +65,10 @@ export class FixturesPage {
     this.gameweeks.update(key, {fixtures})
       .then(_ => this._toastService
         .displayToast(`Gameweek ${parseInt(key, 10) + 1}, match ${index + 1}: Selection reset`));
+  }
+
+  private getFixturesIndexFromGameweek(fixtures: Array<Fixture>, prediction: string): number {
+    const index = _.findIndex(fixtures, fixture => fixture.home === prediction || fixture.away === prediction);
+    return index;
   }
 }
