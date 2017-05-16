@@ -3,3 +3,4 @@ export { DBService } from './db/db.service';
 export { ToastService } from './toast/toast.service';
 export * from './db/db.service.mock';
 export * from './toast/toast.service.mock';
+export * from './auth/auth.service.mock';

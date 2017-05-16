@@ -5,7 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home.page';
 import { FixturesPage, GroupsPage } from '../pages';
-import { FixtureComponent } from '../components';
+import { FixtureComponent, NavbarComponent } from '../components';
 import { DBService, AuthService, ToastService } from '../providers';
 
 export const firebaseConfig = {
@@ -28,6 +28,7 @@ export const firebaseConfig = {
     FixturesPage,
     GroupsPage,
     FixtureComponent,
+    NavbarComponent,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -36,6 +37,7 @@ export const firebaseConfig = {
     FixturesPage,
     GroupsPage,
     FixtureComponent,
+    NavbarComponent,
   ],
   providers: [
     DBService,

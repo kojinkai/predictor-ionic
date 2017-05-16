@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ItemSliding } from 'ionic-angular';
 import { FirebaseListObservable } from 'angularfire2';
-import { DBService } from '../../providers';
-import { ToastService } from '../../providers';
+import { DBService, ToastService, AuthService } from '../../providers';
 
 import _ from 'lodash';
 
@@ -24,9 +23,15 @@ interface Fixture {
 export class FixturesPage {
 
   gameweeks: FirebaseListObservable<Gameweek[]>;
+  photoURL: string;
+  isAuthenticated: boolean;
+  title: string;
 
-  constructor(private _dbService: DBService, private _toastService: ToastService) {
+  constructor(private _dbService: DBService, private _toastService: ToastService, private _authService: AuthService) {
     this.gameweeks = _dbService.getFixtures();
+    this.photoURL = _authService.getUserAvatarUrl();
+    this.isAuthenticated = _authService.authenticated;
+    this.title = 'Fixtures';
   }
 
   public pickTeamToWin(key: string, fixtures: Array<Fixture>, prediction: string, slidingItem: ItemSliding): void {
@@ -54,7 +59,7 @@ export class FixturesPage {
     slidingItem.close();
 
     // we receive the Gameweek's key, and fixtures from the view
-    // but we want to find the specific match in that gameweek to remove the prediction from§
+    // but we want to find the specific match in that gameweek to remove the prediction from
     // first, grab the index of that fixture from the gameweek's, fixtures...
     const index = this.getFixturesIndexFromGameweek(fixtures, prediction);
 

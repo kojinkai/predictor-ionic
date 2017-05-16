@@ -1,7 +1,14 @@
 import { FixturesPage } from './fixtures.page';
 import { TestBed, inject } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { DBService, MockDBService, ToastService, MockToastService } from '../../providers';
+import {
+    DBService,
+    MockDBService,
+    ToastService,
+    MockToastService,
+    AuthService,
+    MockAuthService,
+} from '../../providers';
 
 describe('Testing the Fixtures page component', () => {
 
@@ -12,6 +19,7 @@ describe('Testing the Fixtures page component', () => {
     providers: [
       {provide: DBService, useClass: MockDBService},
       {provide: ToastService, useClass: MockToastService},
+      {provide: AuthService, useClass: MockAuthService},
       FixturesPage,
     ],
   }));

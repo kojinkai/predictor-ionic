@@ -7,9 +7,10 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'groups.page.html',
 })
 export class GroupsPage {
+  title: string;
 
-  constructor(public navCtrl: NavController) {
-
+  constructor() {
+    this.title = 'Groups';
   }
 
 }

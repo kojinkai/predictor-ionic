@@ -1,11 +1,4 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Fixtures</ion-title>
-  </ion-navbar>
-</ion-header>
+<pr-navbar [name]="title"></pr-navbar>
 
 <ion-content>
   <ion-list>
@@ -18,7 +11,7 @@
         </ion-item>
 
         <ion-item-options side="left">
-          <button 
+          <button
             ion-button
             icon-only
             color="primary"
@@ -26,7 +19,7 @@
             (click)="resetSelection(gameweek.$key, gameweek.fixtures, fixture.home, slidingitem)">
               <ion-icon name="ios-trash"></ion-icon>
           </button>
-          <button 
+          <button
             ion-button
             *ngIf="fixture.prediction !== fixture.home"
             (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.home, slidingitem)">
@@ -35,7 +28,7 @@
         </ion-item-options>
 
         <ion-item-options side="right">
-          <button 
+          <button
             ion-button
             icon-only
             color="primary"
@@ -43,8 +36,8 @@
             (click)="resetSelection(gameweek.$key, gameweek.fixtures, fixture.home, slidingitem)">
               <ion-icon name="ios-trash"></ion-icon>
           </button>
-          <button 
-            ion-button 
+          <button
+            ion-button
             *ngIf="fixture.prediction !== fixture.away"
             (click)="pickTeamToWin(gameweek.$key, gameweek.fixtures, fixture.away, slidingitem)">
               Away Win
