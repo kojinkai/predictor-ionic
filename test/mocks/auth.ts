@@ -53,6 +53,9 @@ class MockFirebaseUser implements firebase.User {
   linkWithRedirect()  { return null; }
   linkWithCredential()  { return null; }
   reauthenticate() { return null; }
+  reauthenticateWithCredential()  { return null; }
+  reauthenticateWithPopup()  { return null; }
+  reauthenticateWithRedirect()  { return null; }
   reload() { return null; }
   sendEmailVerification() { return null; }
   unlink() { return null; }
