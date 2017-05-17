@@ -45,13 +45,13 @@ class MockFirebaseUser implements firebase.User {
   isAnonymous: boolean;
   providerData: (firebase.UserInfo)[];
   refreshToken: string;
-  linkWithCredential: Promise<any>;
 
   delete() { return null; }
   getToken() { return null; }
   link()  { return null; }
   linkWithPopup() { return null; }
   linkWithRedirect()  { return null; }
+  linkWithCredential()  { return null; }
   reauthenticate() { return null; }
   reload() { return null; }
   sendEmailVerification() { return null; }
